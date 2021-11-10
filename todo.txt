@@ -1,0 +1,31 @@
+download fontawesom icons for about, server, backend etc
+{% comment %} remove the girls picture {% endcomment %}
+{% comment %} change the buttons on preview {% endcomment %}
+{% comment %} align the scroll down button in the index and preview page  {% endcomment %}
+{% comment %} add todo to git ignore {% endcomment %}
+{% comment %} test out the app button in small screen while you're in the project preview page {% endcomment %}
+{% comment %} change the content of the navbar depending on the location {% endcomment %}
+{% comment %} rest your fucking ass. {% endcomment %}
+{% comment %} put a margin around dark theme a=button and icon button {% endcomment %}
+{% comment %} fix the close btn not working {% endcomment %}
+{% comment %} fix the padding on services view more {% endcomment %}
+{% comment %} render the projects and other data {% endcomment %}
+add a short about in the project model
+{% comment %} review services modal list {% endcomment %}
+{% comment %} fix dark theme {% endcomment %}
+{% comment %} make the home button  in the preview navbar go home  {% endcomment %}
+make the project info background rende rfrom a variable in your styles.css
+add a dark theme option to all the backend and font color change
+{% comment %} fix scroll down in the preview page {% endcomment %}
+{% comment %} fix the margin around the modal of services {% endcomment %}
+{% comment %} remove the modal of vie more in projects and replace with a link to the preview page {% endcomment %}
+{% comment %} do you have a new a project? remove the girls picture {% endcomment %}
+{% comment %} temporarily disable testimonials {% endcomment %}
+edit contact details to show mine
+{% comment %} setup an email system that sends you an email when you get a message using django messages {% endcomment %}
+add icon8 to your footer
+add portfolio to projects
+portfolio thumbnail image
+
+{% comment %} remember to remove app and close {% endcomment %}
+remember to check if the x icon is showing on servives modal

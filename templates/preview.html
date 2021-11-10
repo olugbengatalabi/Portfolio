@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+  <link rel="stylesheet" href="{%static 'css/preview.css' %}">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+  <link rel="stylesheet" href="{%static 'css/swiper-bundle.min.css'%}">
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="" class="nav__logo">Olugbenga</a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list grid">
+          <li class="nav__item">
+            
+            {% if "index" in request.path %}
+            <a href="#home" class="nav__link">
+              <i class="uil uil-estate nav__icon"></i>Home
+            </a>
+            {% else %}
+            <a href="{% url 'index' %}" class="nav__link">
+              <i class="uil uil-estate nav__icon"></i>Home
+            </a>
+            {% endif %}
+              
+            
+          </li>
+          
+          {% if not "preview" in request.path %}
+          <li class="nav__item">
+            <a href="#about" class="nav__link">
+              <i class="uil uil-user nav__icon"></i>About
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#skills" class="nav__link">
+              <i class="uil uil-file-alt nav__icon"></i>Skills
+              
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#services" class="nav__link">
+              <i class="uil uil-briefcase-alt nav__icon"></i>Services
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#portfolio" class="nav__link">
+              <i class="uil uil-scenery nav__icon"></i>Portfolio
+            </a>
+          </li>
+          {% endif %}
+            
+          
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">
+              <i class="uil uil-message nav__icon"></i>Contact Me
+            </a>
+          </li>
+        </ul>
+        <i class="uil uil-times nav__close" id="nav-close"></i>
+      </div>
+
+
+      <div class="nav__btns">
+        <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="uil uil-apps"></i>   
+          <!-- theme change -->
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="section section1">
+      <div class="container">
+        <h1 class="section__title app-name">{{project.project_title}}</h1>
+        <div class="image-container">
+          <img src="{{project.banner_image.url}}" alt="{{project.project_title}} image" class="preview-img__container">
+          <div>
+            <div class="home__scroll">
+              <a href="#preview-details" class="home__scroll-button button--flex">
+                <i class="uil uil-mouse-alt-2 home__scroll-mouse"></i>
+                <span class="home__scroll-name">Scroll down</span>
+                <i class="uil uil-arrow-down home__scroll-arrow"></i>
+              </a>
+            </div>
+            <div>
+              <div class="visit_page">
+                <!-- input your website link -->
+                <a href="" class="button button-flex">
+                  visit
+                  <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+              </div>
+              <div class="visit_page">
+                <a href="{project.github_link}" class="button button">
+                  code
+                  <i class="uil uil-github-alt button__icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <div class="button button--flex button--small visit_page portfolio__button">Visit
+      <i class="uil uil-arrow-right button__icon"></i>
+    </div>
+    <div class="button button--flex button--small visit_page portfolio__button">Github
+      <i class="uil uil-arrow-right button__icon"></i>
+    </div> -->
+
+    <!-- Details -->
+
+    <section class=" preview-details__container" id="preview-details">      
+      <article class="feature">
+        <h1 class="feature__number about">About</h1>
+        <div class="feature__content">
+          <div class="story">
+            <p>{{project.about}}</p>
+          </div>
+        </div>
+      </article>
+      
+      <article class="feature">
+        <h1 class="feature__number">Frontend</h1>
+        <div class="feature__content">
+          <div class="story">
+            
+            {% if project.html and project.vanilla_javascript %}
+              <ul>
+                <li> HTML</li>
+                <li>CSS</li>
+                <li>Vanilla Javascript</li>
+              </ul>
+            {% else %}
+              <p>
+                Frontend Framework : <span>{{project.front_framework}}</span>
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      
+      <article class="feature">
+        <h1 class="feature__number">Backend</h1>
+        <div class="feature__content">
+          <div class="story">
+            <p>
+              Backend Framework : <span>{{project.backend_framework}}</span>
+            </p>
+            <p>
+              Database : <span>{{project.database}}</span> 
+            </p>
+            <!-- <p>
+              authentication :<span>  Django default authentication using AbstractUser</span> 
+            </p> -->
+            <p>
+              Other Features : <span> {{project.other_features}}</span>
+            </p>  
+          </div>
+        </div>
+      </article>
+
+      <article class="feature">
+        <h1 class="feature__number">server tech</h1>
+        <div class="feature__content">
+          <div class="story">
+            <p>
+              Deployed to: <span>{{project.deployed_to}}</span>
+            </p>
+            <p>
+              Database : <span>{{project.database}}</span> 
+            </p>
+            <p>
+              Serving static files: <span>{{project.static_files_handling}}</span>
+            </p>
+            <p>
+              Port re-Routing : <span>{{project.port_routing}}</span>
+            </p>  
+          </div>
+        </div>
+      </article>
+      <article class="feature">
+        <h1 class="feature__number version-control">Version control</h1>
+        <div class="feature__content">
+          <div class="story">
+            <img src="{% static 'img/portfolio derma resources/github-alt.svg' %}" class="github" alt="github logo">
+
+          </div>
+        </div>
+      </article>
+    </section>
+    <div class="home__button">
+      <a href="{% url 'index'%}" class="button button">
+        Home
+        <i class="uil uil-home-alt button__icon"></i>
+      </a>
+    </div>
+      <h3 class="center"><a href="https://www.instagram.com/aristidebenoist/" target="_blank" rel="noopener noreferer">Inspired by Aristide Benoist</a></h3>
+
+  </main>
+  <script src="{% static 'js/preview.js' %}"></script>
+
+</body>
+</html>

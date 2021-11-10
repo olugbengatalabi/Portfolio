@@ -1,0 +1,10 @@
+*git 
+*.log
+*.pot
+*.pyc
+__pychache__/
+local_settings.py
+media
+venv
+todo.txt
+.env
